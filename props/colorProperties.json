@@ -1,0 +1,42 @@
+{
+	"values": [null,
+		["r", "number"],
+		["g", "number"],
+		["b", "number"],
+		["pColor", "list"],
+		["blending", "bool"],
+		["channel", "channel"],
+		["opacity", "number"],
+		null,
+		["copiedChannel", "channel"],
+		["copiedHSV", "hsv"],
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		["copyOpacity", "bool"]
+	],
+
+	"channels": {
+		"1000": "BG",
+		"1001": "G",
+		"1002": "Line",
+		"1003": "3DL",
+		"1004": "Obj",
+		"1005": "P1",
+		"1006": "P2",
+		"1007": "Light BG",
+		"1009": "G2",
+		"1010": "Black",
+		"1011": "White",
+		"1012": "Lighter"
+	},
+
+	"pColors": {
+		"-1": "None",
+		"1": "P1",
+		"2": "P2"
+	}
+}
