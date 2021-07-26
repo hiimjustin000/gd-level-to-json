@@ -163,10 +163,60 @@ function parseObj(obj, splitter, nameArr) {
 	return parsedObj;
 }
 
+function convertLegacy(obj) {
+	let newObj = {
+		colors: [],
+		...obj
+	}
+
+	if (obj.colors) return obj;
+
+	for (let prop of Object.keys(obj)) {
+		if (prop.includes("legacy")) {
+			let colorInfo = prop.split("-");
+			let theObj = {};
+
+			if (colorInfo[2]) {
+				if (!newObj.colors.find(x => x.channel == colorInfo[1])) {
+					theObj = {
+						channel: isNaN(colorInfo[1]) ? colorInfo[1] : Number(colorInfo[1]),
+						opacity: 1
+					}
+				} else
+					theObj = newObj.colors.find(x => x.channel == colorInfo[1]);
+
+				if (colorInfo[2] == "blend")
+					theObj.blending = obj[prop];
+				else if (colorInfo[2] == "pcol")
+					theObj.pColor = obj[prop];
+				else
+					theObj[colorInfo[2]] = obj[prop];
+			
+				if (!newObj.colors.find(x => x.channel == colorInfo[1]))
+					newObj.colors.push(theObj);
+				else
+					newObj.colors.splice(newObj.colors.findIndex(x => x.channel == colorInfo[1]), 1, theObj);
+			} else {
+				theObj = {
+					...obj[prop],
+					channel: isNaN(colorInfo[1]) ? colorInfo[1] : Number(colorInfo[1]),
+					opacity: 1
+				}
+
+				newObj.colors.push(theObj);
+			}
+
+			delete newObj[prop];
+		}
+	}
+
+	return newObj;
+}
+
 function convert(data) {
 	if (!data.startsWith("kS")) data = zlib.unzipSync(Buffer.from(data, "base64")).toString();
 
-	let properties = parseObj(data.split(";")[0], ",", propProps);
+	let properties = convertLegacy(parseObj(data.split(";")[0], ",", propProps));
 	let array = data.split(";").slice(1).filter(x => x != "");
 
 	let objects = [];
