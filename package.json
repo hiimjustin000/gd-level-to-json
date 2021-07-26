@@ -1,6 +1,6 @@
 {
   "name": "gd-level-to-json",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Convert a Geometry Dash level's data to a readable JSON format.",
   "main": "index.js",
   "types": "index.d.ts",
