@@ -150,5 +150,5 @@
 	"pickupModes": ["none", "pickup", "toggle"],
 	"touchToggles": ["default", true, false],
 	"countComparisons": ["equals", "larger", "smaller"],
-	"targetCoords": ["both", "x", "y"]
+	"targetCoordss": ["both", "x", "y"]
 }

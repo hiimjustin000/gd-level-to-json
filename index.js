@@ -23,7 +23,7 @@ function convertKS38(kS38) {
 						theValue = colorProps[property + "s"][theValue];
 						break;
 					case "channel":
-						theValue = colorProps[property + "s"][theValue] ? colorProps[property + "s"][theValue] : Number(theValue);
+						theValue = colorProps.channels[theValue] ? colorProps.channels[theValue] : Number(theValue);
 						break;
 					case "number":
 						theValue = Number(theValue);
@@ -124,7 +124,7 @@ function parseObj(obj, splitter, nameArr) {
 									theValue = colorProps[theProperty + "s"][theValue];
 									break;
 								case "channel":
-									theValue = colorProps[theProperty + "s"][theValue] ? colorProps[theProperty + "s"][theValue] : Number(theValue);
+									theValue = colorProps.channels[theValue] ? colorProps.channels[theValue] : Number(theValue);
 									break;
 								case "number":
 									theValue = Number(theValue);

@@ -1,10 +1,13 @@
 {
   "name": "gd-level-to-json",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Convert a Geometry Dash level's data to a readable JSON format.",
   "main": "index.js",
   "types": "index.d.ts",
   "repository": "github:bwbjustin/gd-level-to-json",
+  "scripts": {
+    "update": "npm i --save-dev @types/node@latest"
+  },
   "keywords": [
     "gd",
     "geometrydash",
@@ -17,6 +20,6 @@
   "author": "BWBJustin",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^16.3.2"
+    "@types/node": "^16.4.8"
   }
 }
